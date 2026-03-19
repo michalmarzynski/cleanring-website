@@ -1,53 +1,1109 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
-    <meta charset="UTF-8">
-    <title>Strona w budowie</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #0f172a;
-            color: #e5e7eb;
-        }
-        .container {
-            text-align: center;
-            padding: 2rem;
-        }
-        h1 {
-            font-size: 2.4rem;
-            margin-bottom: 0.8rem;
-        }
-        p {
-            font-size: 1rem;
-            color: #9ca3af;
-            margin-top: 0;
-        }
-        .tag {
-            display: inline-block;
-            margin-top: 1.5rem;
-            padding: 0.4rem 0.9rem;
-            border-radius: 999px;
-            background: rgba(148, 163, 184, 0.16);
-            font-size: 0.8rem;
-            letter-spacing: 0.08em;
-            text-transform: uppercase;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title data-i18n-title-pl>
+    CleanRing – silikonowa uszczelka ochronna do płyty indukcyjnej | Czysta i zadbana kuchnia
+  </title>
+  <meta name="description" data-i18n-meta-pl
+        content="CleanRing to cienka, silikonowa uszczelka ochronna do płyty indukcyjnej, która zabezpiecza szczelinę między szkłem a blatem przed brudem i wilgocią. Łatwy montaż bez kleju, szybkie czyszczenie i estetyczny wygląd kuchni." />
+
+  <meta name="description" data-i18n-meta-en
+        content="CleanRing is a slim silicone protective seal for your induction hob that protects the gap between glass and countertop from dirt and moisture. Easy tool‑free installation, simple cleaning and a neat, modern kitchen." />
+  <title data-i18n-title-en hidden>
+    CleanRing – silicone protective seal for induction hob | Keep your kitchen clean
+  </title>
+
+  <meta property="og:type" content="product" />
+  <meta property="og:url" content="https://cleanring.eu" />
+  <meta property="og:image" content="https://cleanring.eu/assets/images/cleanring-1.jpg" />
+  <meta property="og:title" content="CleanRing – silikonowa uszczelka ochronna do płyty indukcyjnej" />
+  <meta property="og:description" content="Silikonowa uszczelka ochronna do płyty indukcyjnej CleanRing – koniec brudu w szczelinie między szkłem a blatem." />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "CleanRing – silikonowa uszczelka ochronna do płyty indukcyjnej",
+    "image": [
+      "https://cleanring.eu/assets/images/cleanring-1.jpg",
+      "https://cleanring.eu/assets/images/cleanring-2.jpg",
+      "https://cleanring.eu/assets/images/cleanring-3.jpg",
+      "https://cleanring.eu/assets/images/cleanring-4.jpg",
+      "https://cleanring.eu/assets/images/cleanring-5.jpg",
+      "https://cleanring.eu/assets/images/cleanring-6.jpg"
+    ],
+    "description": "CleanRing to cienka, czarna, silikonowa uszczelka ochronna, którą wsuwasz między krawędź płyty indukcyjnej a blat. Chroni szczelinę przed okruszkami, sosami i wilgocią, jest odporna na temperaturę, łatwa w montażu i czyszczeniu.",
+    "brand": {
+      "@type": "Brand",
+      "name": "CleanRing"
+    },
+    "sku": "CLEANRING-001",
+    "offers": {
+      "@type": "Offer",
+      "url": "https://cleanring.1ct.eu",
+      "priceCurrency": "PLN",
+      "price": "45.00",
+      "availability": "https://schema.org/InStock",
+      "itemCondition": "https://schema.org/NewCondition"
+    }
+  }
+  </script>
+
+  <style>
+    :root {
+      --bg: #f7f7f9;
+      --bg-alt: #ffffff;
+      --primary: #111827;
+      --accent: #0ea5e9;
+      --accent-dark: #0284c7;
+      --border: #e5e7eb;
+      --text: #111827;
+      --muted: #6b7280;
+      --max-width: 1100px;
+      --radius: 12px;
+      --shadow-soft: 0 10px 30px rgba(15, 23, 42, 0.07);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    body {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    a {
+      color: var(--accent-dark);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    header {
+      background: var(--bg-alt);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+
+    .topbar {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 0.6rem 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      min-width: 0;
+    }
+
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .brand-logo img {
+      display: block;
+      height: 32px;
+      width: auto;
+    }
+
+    @media (max-width: 640px) {
+      .brand-logo img {
+        height: 26px;
+      }
+    }
+
+    .brand-text {
+      font-weight: 600;
+      font-size: 0.95rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+    }
+
+    .lang-switch {
+      display: inline-flex;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: #f3f4f6;
+    }
+
+    .lang-btn {
+      border: none;
+      background: transparent;
+      padding: 0.25rem 0.75rem;
+      font-size: 0.85rem;
+      cursor: pointer;
+      color: var(--muted);
+      transition: background 0.15s ease, color 0.15s ease;
+    }
+
+    .lang-btn.active {
+      background: var(--primary);
+      color: #f9fafb;
+    }
+
+    main {
+      flex: 1;
+    }
+
+    .hero {
+      max-width: var(--max-width);
+      margin: 1.25rem auto;
+      padding: 0 1rem 2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 1.75rem;
+      align-items: flex-start;
+    }
+
+    .hero-left h1 {
+      font-size: 1.9rem;
+      margin: 0 0 0.7rem;
+    }
+
+    .hero-left p {
+      margin: 0 0 0.9rem;
+      color: var(--muted);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.15rem 0.65rem;
+      border-radius: 999px;
+      background: #e0f2fe;
+      color: #0369a1;
+      font-size: 0.75rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-usp {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1rem;
+    }
+
+    .hero-usp span::before {
+      content: "• ";
+      color: var(--accent-dark);
+    }
+
+    .hero-cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      align-items: center;
+      margin-bottom: 0.6rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      border-radius: 999px;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      text-decoration: none;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+      color: #f9fafb;
+      box-shadow: 0 10px 18px rgba(37, 99, 235, 0.35);
+    }
+
+    .btn-primary:hover {
+      filter: brightness(1.03);
+      text-decoration: none;
+    }
+
+    .btn-secondary {
+      background: #111827;
+      color: #f9fafb;
+    }
+
+    .btn-secondary:hover {
+      filter: brightness(1.05);
+      text-decoration: none;
+    }
+
+    .hero-note {
+      font-size: 0.8rem;
+      color: var(--muted);
+    }
+
+    /* GALERIA – wspólna, scrollowalna + lightbox */
+    .hero-right {
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      padding: 0.75rem;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .gallery-main {
+      width: 100%;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .gallery-main img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+      max-height: 260px;
+      cursor: pointer;
+    }
+
+    .gallery-thumbs-wrapper {
+      position: relative;
+    }
+
+    .gallery-thumbs {
+      display: flex;
+      gap: 0.5rem;
+      overflow-x: auto;
+      padding-bottom: 0.2rem;
+      -webkit-overflow-scrolling: touch;
+      scroll-snap-type: x mandatory;
+    }
+
+    .gallery-thumb {
+      flex: 0 0 auto;
+      width: 90px;
+      height: 70px;
+      border-radius: 6px;
+      object-fit: contain; /* pełna zawartość zdjęcia */
+      background: #000;     /* czarne tło, żeby nie było białych pasków */
+      cursor: pointer;
+      scroll-snap-align: start;
+      opacity: 0.95;
+    }
+
+    .gallery-thumb:hover {
+      opacity: 1;
+    }
+
+    .gallery-thumb.active {
+      outline: 2px solid var(--accent-dark);
+      opacity: 1;
+    }
+
+    .gallery-scroll-hint {
+      font-size: 0.7rem;
+      color: var(--muted);
+      margin-top: 0.1rem;
+    }
+
+    /* Lightbox z przewijaniem zdjęć */
+    .lightbox-backdrop {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.9);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+    }
+
+    .lightbox-backdrop.active {
+      display: flex;
+    }
+
+    .lightbox-content {
+      max-width: 95vw;
+      max-height: 95vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-content img {
+      max-width: 95vw;
+      max-height: 90vh;
+      border-radius: 10px;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
+      display: block;
+      object-fit: contain;
+      background: #000;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      top: -0.75rem;
+      right: -0.75rem;
+      width: 30px;
+      height: 30px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(15, 23, 42, 0.85);
+      color: #e5e7eb;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-close:hover {
+      background: rgba(15, 23, 42, 1);
+    }
+
+    .lightbox-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 38px;
+      height: 38px;
+      border-radius: 999px;
+      border: none;
+      background: rgba(15, 23, 42, 0.75);
+      color: #e5e7eb;
+      cursor: pointer;
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .lightbox-arrow:hover {
+      background: rgba(15, 23, 42, 0.95);
+    }
+
+    .lightbox-arrow.left {
+      left: -2.5rem;
+    }
+
+    .lightbox-arrow.right {
+      right: -2.5rem;
+    }
+
+    /* SEKCJE TEKSTOWE */
+    .sections {
+      max-width: var(--max-width);
+      margin: 0 auto 2.5rem;
+      padding: 0 1rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.8fr) minmax(0, 1.1fr);
+      gap: 1.75rem;
+      align-items: flex-start;
+    }
+
+    .section {
+      background: var(--bg-alt);
+      border-radius: var(--radius);
+      padding: 1.15rem 1.1rem;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 1rem;
+    }
+
+    .section h2 {
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .section p {
+      margin: 0.35rem 0;
+      font-size: 0.95rem;
+    }
+
+    .section ul {
+      margin: 0.35rem 0 0.2rem 1rem;
+      padding: 0;
+      font-size: 0.95rem;
+    }
+
+    .section li {
+      margin-bottom: 0.2rem;
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.3rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.15rem 0.55rem;
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      color: #4b5563;
+      background: #f9fafb;
+    }
+
+    .cta-block {
+      margin-top: 0.5rem;
+      padding-top: 0.75rem;
+      border-top: 1px dashed var(--border);
+    }
+
+    .cta-block p {
+      margin-bottom: 0.5rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: #020617;
+      color: #9ca3af;
+      margin-top: auto;
+    }
+
+    .footer-inner {
+      max-width: var(--max-width);
+      margin: 0 auto;
+      padding: 1rem;
+      font-size: 0.85rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+    }
+
+    .footer-links a {
+      color: #e5e7eb;
+      text-decoration: none;
+      font-size: 0.85rem;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    .footer-contact span {
+      display: inline-block;
+      margin-right: 0.5rem;
+    }
+
+    /* RESPONSYWNOŚĆ */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .sections {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .lightbox-arrow.left {
+        left: 0.5rem;
+      }
+
+      .lightbox-arrow.right {
+        right: 0.5rem;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-inline: 0.9rem;
+        gap: 1.25rem;
+      }
+
+      .sections {
+        padding-inline: 0.9rem;
+      }
+
+      .hero-left h1 {
+        font-size: 1.55rem;
+      }
+
+      .hero-cta {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-secondary {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .gallery-thumb {
+        width: 80px;
+        height: 64px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Strona w budowie</h1>
-        <p>Pracujemy nad nową odsłoną serwisu. Zapraszamy wkrótce.</p>
-        <div class="tag">Wkrótce online</div>
+<header>
+  <div class="topbar">
+    <div class="brand">
+      <div class="brand-logo">
+        <img src="http://cleanring.eu/assets/images/logo_main.png"
+             alt="CleanRing – logo marki silikonowej uszczelki ochronnej do płyty indukcyjnej">
+      </div>
+      <div class="brand-text" data-i18n="brand">
+        CleanRing – silikonowa uszczelka do płyty indukcyjnej
+      </div>
     </div>
+    <div class="lang-switch" aria-label="Language switch">
+      <button class="lang-btn active" data-lang="pl" type="button">PL</button>
+      <button class="lang-btn" data-lang="en" type="button">EN</button>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="hero-left">
+      <div class="badge" data-i18n="badge">
+        Czysta szczelina przy płycie indukcyjnej – bez skrobania
+      </div>
+      <h1 data-i18n="hero_h1">
+        CleanRing – silikonowa uszczelka ochronna do płyty indukcyjnej
+      </h1>
+      <p data-i18n="hero_intro">
+        CleanRing to cienka, czarna, silikonowa uszczelka ochronna do płyty indukcyjnej, którą wsuwasz między szkło a blat. To prosty sposób na ochronę szczeliny przy płycie indukcyjnej przed brudem i wilgocią – bez kleju, bez narzędzi.
+      </p>
+
+      <div class="hero-usp">
+        <span data-i18n="usp_1">
+          Ochrona szczeliny przy płycie indukcyjnej przed brudem i wilgocią
+        </span>
+        <span data-i18n="usp_2">
+          Szybki montaż bez kleju, tylko wsuwasz między szkło a blat
+        </span>
+        <span data-i18n="usp_3">
+          Łatwe czyszczenie – wyjmij, opłucz pod wodą i załóż ponownie
+        </span>
+      </div>
+
+      <div class="hero-cta">
+        <a href="https://cleanring.1ct.eu" target="_blank" rel="noopener" class="btn-primary" data-i18n="btn_store">
+          Kup teraz w sklepie
+        </a>
+        <a href="https://allegro.pl/oferta/cleanring-silikonowa-uszczelka-do-plyty-indukcyjnej-koniec-brudu-18397395988"
+           target="_blank" rel="noopener" class="btn-secondary" data-i18n="btn_allegro">
+          Zobacz na Allegro
+        </a>
+      </div>
+
+      <p class="hero-note" data-i18n="hero_note">
+        Bardzo dyskretna, czarna silikonowa uszczelka do płyty indukcyjnej – pasuje do większości płyt niezlicowanych z blatem.
+      </p>
+    </div>
+
+    <div class="hero-right">
+      <div class="gallery-main">
+        <img
+          id="gallery-main-img"
+          src="http://cleanring.eu/assets/images/cleanring-1.jpg"
+          alt="CleanRing – czarna silikonowa uszczelka ochronna do płyty indukcyjnej wokół szczeliny między szkłem a blatem"
+          data-i18n-alt-pl="CleanRing – czarna silikonowa uszczelka ochronna do płyty indukcyjnej wokół szczeliny między szkłem a blatem"
+          data-i18n-alt-en="CleanRing – black silicone protective seal for induction hob, sealing the gap between glass and countertop"
+        />
+      </div>
+      <div class="gallery-thumbs-wrapper">
+        <div class="gallery-thumbs" id="gallery-thumbs">
+          <img
+            class="gallery-thumb active"
+            data-full="http://cleanring.eu/assets/images/cleanring-1.jpg"
+            src="http://cleanring.eu/assets/images/cleanring-1.jpg"
+            alt="CleanRing – czarna silikonowa uszczelka ochronna do płyty indukcyjnej wokół szczeliny między szkłem a blatem"
+            data-i18n-alt-pl="CleanRing – czarna silikonowa uszczelka ochronna do płyty indukcyjnej wokół szczeliny między szkłem a blatem"
+            data-i18n-alt-en="CleanRing – black silicone protective seal for induction hob, sealing the gap between glass and countertop"
+          />
+          <img
+            class="gallery-thumb"
+            data-full="http://cleanring.eu/assets/images/cleanring-2.jpg"
+            src="http://cleanring.eu/assets/images/cleanring-2.jpg"
+            alt="CleanRing – silikonowa uszczelka do płyty indukcyjnej widoczna między szkłem a blatem kuchennym"
+            data-i18n-alt-pl="CleanRing – silikonowa uszczelka do płyty indukcyjnej widoczna między szkłem a blatem kuchennym"
+            data-i18n-alt-en="CleanRing – silicone protective seal for induction cooktop, placed between hob glass and worktop"
+          />
+          <img
+            class="gallery-thumb"
+            data-full="http://cleanring.eu/assets/images/cleanring-3.jpg"
+            src="http://cleanring.eu/assets/images/cleanring-3.jpg"
+            alt="CleanRing – ochrona szczeliny przy płycie indukcyjnej przed brudem i wilgocią"
+            data-i18n-alt-pl="CleanRing – ochrona szczeliny przy płycie indukcyjnej przed brudem i wilgocią"
+            data-i18n-alt-en="CleanRing – protecting the gap around an induction hob from dirt and moisture"
+          />
+          <img
+            class="gallery-thumb"
+            data-full="http://cleanring.eu/assets/images/cleanring-4.jpg"
+            src="http://cleanring.eu/assets/images/cleanring-4.jpg"
+            alt="CleanRing – montaż silikonowej uszczelki między płytą indukcyjną a blatem"
+            data-i18n-alt-pl="CleanRing – montaż silikonowej uszczelki między płytą indukcyjną a blatem"
+            data-i18n-alt-en="CleanRing – installing the silicone seal between induction hob and countertop"
+          />
+          <img
+            class="gallery-thumb"
+            data-full="http://cleanring.eu/assets/images/cleanring-5.jpg"
+            src="http://cleanring.eu/assets/images/cleanring-5.jpg"
+            alt="CleanRing – czarna silikonowa uszczelka ochronna wokół płyty indukcyjnej"
+            data-i18n-alt-pl="CleanRing – czarna silikonowa uszczelka ochronna wokół płyty indukcyjnej"
+            data-i18n-alt-en="CleanRing – black silicone protective seal around an induction hob"
+          />
+          <img
+            class="gallery-thumb"
+            data-full="http://cleanring.eu/assets/images/cleanring-6.jpg"
+            src="http://cleanring.eu/assets/images/cleanring-6.jpg"
+            alt="CleanRing – szczegół szczeliny między płytą indukcyjną a blatem z założoną uszczelką"
+            data-i18n-alt-pl="CleanRing – szczegół szczeliny między płytą indukcyjną a blatem z założoną uszczelką"
+            data-i18n-alt-en="CleanRing – close-up of the gap between induction hob and worktop with the seal installed"
+          />
+        </div>
+        <div class="gallery-scroll-hint" data-i18n="gallery_hint">
+          Przesuń poziomo, aby zobaczyć kolejne zdjęcia. Kliknij duże zdjęcie, aby powiększyć.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="lightbox-backdrop" id="lightbox">
+    <div class="lightbox-content">
+      <button class="lightbox-close" aria-label="Close">&times;</button>
+      <button class="lightbox-arrow left" aria-label="Previous">&#10094;</button>
+      <img src="" alt="" id="lightbox-img" />
+      <button class="lightbox-arrow right" aria-label="Next">&#10095;</button>
+    </div>
+  </div>
+
+  <section class="sections">
+    <div>
+      <article class="section">
+        <h2 data-i18n="why_title">
+          Dlaczego warto mieć CleanRing w swojej kuchni?
+        </h2>
+        <p data-i18n="why_p1">
+          Podczas gotowania między płytą indukcyjną a blatem wpadają okruszki, sosy i resztki jedzenia. Po tygodniach i miesiącach w tej wąskiej szczelinie zbiera się trudny do usunięcia brud, wilgoć i tłuszcz, a skrobanie nożykiem lub skrobakiem grozi porysowaniem szkła.
+        </p>
+        <p data-i18n="why_p2">
+          Silikonowa uszczelka ochronna do płyty indukcyjnej CleanRing tworzy dyskretną, elastyczną barierę wokół płyty. Uszczelka do płyty indukcyjnej między szkłem a blatem skutecznie zatrzymuje okruszki i wilgoć, dzięki czemu kuchnia dłużej pozostaje czysta i zadbana.
+        </p>
+      </article>
+
+      <article class="section">
+        <h2 data-i18n="how_title">
+          Jak działa uszczelka CleanRing?
+        </h2>
+        <p data-i18n="how_p1">
+          CleanRing to cienka, silikonowa uszczelka ochronna wsuwana w szczelinę między krawędzią płyty indukcyjnej a blatem. Montujesz ją bez kleju – lekko naciągając wzdłuż całego obwodu płyty, tak aby uszczelka stabilnie siedziała między szkłem a blatem.
+        </p>
+        <p data-i18n="how_p2">
+          Elastyczna guma silikonowa dopasowuje się do szczeliny i jest odporna na typowe temperatury wokół płyty. Nie odkształca się, nie odbarwia i zachowuje sprężystość, zapewniając długotrwałą ochronę szczeliny przy płycie indukcyjnej przed brudem i wilgocią.
+        </p>
+      </article>
+
+      <article class="section">
+        <h2 data-i18n="install_title">
+          Szybki montaż – bez narzędzi i kleju
+        </h2>
+        <p data-i18n="install_p1">
+          Montaż CleanRing zajmuje tylko kilka minut. Wystarczy wykonać proste kroki:
+        </p>
+        <ul>
+          <li data-i18n="install_li1">
+            Wyczyść i dokładnie osusz przestrzeń wokół płyty indukcyjnej, zwłaszcza szczelinę między szkłem a blatem.
+          </li>
+          <li data-i18n="install_li2">
+            Delikatnie naciągaj silikonową uszczelkę CleanRing palcami, wsuwając ją kolejno w szczelinę na całym obwodzie płyty.
+          </li>
+        </ul>
+        <p data-i18n="install_p2">
+          Nie musisz używać kleju ani narzędzi – czarna silikonowa uszczelka do płyty indukcyjnej trzyma się dzięki lekkim naprężeniom i dopasowaniu do szczeliny.
+        </p>
+      </article>
+
+      <article class="section">
+        <h2 data-i18n="clean_title">
+          Łatwe czyszczenie – po prostu umyj pod wodą
+        </h2>
+        <p data-i18n="clean_p1">
+          Kiedy chcesz dokładnie wyczyścić okolicę płyty, jednym ruchem wyjmij CleanRing ze szczeliny. Następnie przepłucz silikonową uszczelkę pod bieżącą wodą z dodatkiem delikatnego detergentu, osusz i wsuwaj z powrotem między płytę indukcyjną a blat.
+        </p>
+        <p data-i18n="clean_p2">
+          Silikon nie nasiąka brudem ani zapachami, dlatego uszczelka wygląda jak nowa nawet po wielu cyklach mycia. To praktyczne rozwiązanie, jeśli szukasz sposobu, jak zabezpieczyć szczelinę między płytą indukcyjną a blatem i jednocześnie ułatwić sobie utrzymanie kuchni w czystości.
+        </p>
+      </article>
+
+      <article class="section">
+        <h2 data-i18n="who_title">
+          Dla kogo jest CleanRing?
+        </h2>
+        <ul>
+          <li data-i18n="who_li1">
+            Dla osób ceniących czystość i estetykę w kuchni.
+          </li>
+          <li data-i18n="who_li2">
+            Dla wynajmujących mieszkania – jako prosta ochrona płyty i blatu przed trudnymi do doczyszczenia zabrudzeniami.
+          </li>
+          <li data-i18n="who_li3">
+            Dla osób po remoncie kuchni, które chcą jak najdłużej zachować nowy wygląd płyty indukcyjnej i blatu.
+          </li>
+          <li data-i18n="who_li4">
+            Dla wszystkich, którzy mają dość skrobania zaschniętego brudu ze szczeliny między szkłem a blatem.
+          </li>
+        </ul>
+      </article>
+
+      <article class="section">
+        <h2 data-i18n="spec_title">
+          Dane techniczne produktu
+        </h2>
+        <p data-i18n="spec_p1">
+          Materiał: guma silikonowa, bezpieczna w kontakcie z wysoką temperaturą typową dla okolic płyty indukcyjnej.
+        </p>
+        <p data-i18n="spec_p2">
+          Kolor: czarny – uniwersalny, wizualnie stapia się z krawędzią większości płyt indukcyjnych.
+        </p>
+        <p data-i18n="spec_p3">
+          Montaż: bezklejowy, uszczelka napinana jest w szczelinę między szkłem płyty a blatem kuchennym.
+        </p>
+        <p data-i18n="spec_p4">
+          Czyszczenie: ręczne, pod bieżącą wodą, z dodatkiem delikatnego detergentu; po osuszeniu ponowny montaż w szczelinie.
+        </p>
+        <div class="pill-list">
+          <span class="pill">
+            silikonowa uszczelka ochronna do płyty indukcyjnej CleanRing
+          </span>
+          <span class="pill">
+            uszczelka do płyty indukcyjnej między szkłem a blatem
+          </span>
+          <span class="pill">
+            czarna silikonowa uszczelka do płyty indukcyjnej
+          </span>
+        </div>
+      </article>
+    </div>
+
+    <aside>
+      <article class="section">
+        <h2 data-i18n="photos_title">
+          Zamów CleanRing
+        </h2>
+        <p data-i18n="photos_p">
+          Rozwiąż problem brudu w szczelinie przy płycie indukcyjnej jednym prostym dodatkiem. Wybierz wygodną dla siebie formę zakupu.
+        </p>
+        <div class="cta-block">
+          <p data-i18n="photos_cta_text">
+            Gotowy, aby raz na zawsze rozwiązać problem brudu w szczelinie przy płycie indukcyjnej?
+          </p>
+          <a href="https://cleanring.1ct.eu" target="_blank" rel="noopener" class="btn-primary" data-i18n="btn_store">
+            Kup teraz w sklepie
+          </a>
+          <a href="https://allegro.pl/oferta/cleanring-silikonowa-uszczelka-do-plyty-indukcyjnej-koniec-brudu-18397395988"
+             target="_blank" rel="noopener" class="btn-secondary" data-i18n="btn_allegro">
+            Zobacz na Allegro
+          </a>
+        </div>
+      </article>
+    </aside>
+  </section>
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-contact">
+      <span data-i18n="footer_brand">
+        © <span id="year"></span> CleanRing – silikonowa uszczelka ochronna do płyty indukcyjnej
+      </span>
+      <span data-i18n="footer_email">
+        Kontakt: <a href="mailto:shop@cleanring.eu">shop@cleanring.eu</a>
+      </span>
+    </div>
+    <div class="footer-links">
+      <a href="https://cleanring.1ct.eu" target="_blank" rel="noopener" data-i18n="footer_store">
+        Sklep online
+      </a>
+      <a href="https://allegro.pl/oferta/cleanring-silikonowa-uszczelka-do-plyty-indukcyjnej-koniec-brudu-18397395988"
+         target="_blank" rel="noopener" data-i18n="footer_allegro">
+        Oferta na Allegro
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const translations = {
+    pl: {
+      brand: "CleanRing – silikonowa uszczelka do płyty indukcyjnej",
+      badge: "Czysta szczelina przy płycie indukcyjnej – bez skrobania",
+      hero_h1: "CleanRing – silikonowa uszczelka ochronna do płyty indukcyjnej",
+      hero_intro: "CleanRing to cienka, czarna, silikonowa uszczelka ochronna do płyty indukcyjnej, którą wsuwasz między szkło a blat. To prosty sposób na ochronę szczeliny przy płycie indukcyjnej przed brudem i wilgocią – bez kleju, bez narzędzi.",
+      hero_note: "Bardzo dyskretna, czarna silikonowa uszczelka do płyty indukcyjnej – pasuje do większości płyt niezlicowanych z blatem.",
+      gallery_hint: "Przesuń poziomo, aby zobaczyć kolejne zdjęcia. Kliknij duże zdjęcie, aby powiększyć.",
+      usp_1: "Ochrona szczeliny przy płycie indukcyjnej przed brudem i wilgocią",
+      usp_2: "Szybki montaż bez kleju, tylko wsuwasz między szkło a blat",
+      usp_3: "Łatwe czyszczenie – wyjmij, opłucz pod wodą i załóż ponownie",
+      btn_store: "Kup teraz w sklepie",
+      btn_allegro: "Zobacz na Allegro",
+      why_title: "Dlaczego warto mieć CleanRing w swojej kuchni?",
+      why_p1: "Podczas gotowania między płytą indukcyjną a blatem wpadają okruszki, sosy i resztki jedzenia. Po tygodniach i miesiącach w tej wąskiej szczelinie zbiera się trudny do usunięcia brud, wilgoć i tłuszcz, a skrobanie nożykiem lub skrobakiem grozi porysowaniem szkła.",
+      why_p2: "Silikonowa uszczelka ochronna do płyty indukcyjnej CleanRing tworzy dyskretną, elastyczną barierę wokół płyty. Uszczelka do płyty indukcyjnej między szkłem a blatem skutecznie zatrzymuje okruszki i wilgoć, dzięki czemu kuchnia dłużej pozostaje czysta i zadbana.",
+      how_title: "Jak działa uszczelka CleanRing?",
+      how_p1: "CleanRing to cienka, silikonowa uszczelka ochronna wsuwana w szczelinę między krawędzią płyty indukcyjnej a blatem. Montujesz ją bez kleju – lekko naciągając wzdłuż całego obwodu płyty, tak aby uszczelka stabilnie siedziała między szkłem a blatem.",
+      how_p2: "Elastyczna guma silikonowa dopasowuje się do szczeliny i jest odporna na typowe temperatury wokół płyty. Nie odkształca się, nie odbarwia i zachowuje sprężystość, zapewniając długotrwałą ochronę szczeliny przy płycie indukcyjnej przed brudem i wilgocią.",
+      install_title: "Szybki montaż – bez narzędzi i kleju",
+      install_p1: "Montaż CleanRing zajmuje tylko kilka minut. Wystarczy wykonać proste kroki:",
+      install_li1: "Wyczyść i dokładnie osusz przestrzeń wokół płyty indukcyjnej, zwłaszcza szczelinę między szkłem a blatem.",
+      install_li2: "Delikatnie naciągaj silikonową uszczelkę CleanRing palcami, wsuwając ją kolejno w szczelinę na całym obwodzie płyty.",
+      install_p2: "Nie musisz używać kleju ani narzędzi – czarna silikonowa uszczelka do płyty indukcyjnej trzyma się dzięki lekkim naprężeniom i dopasowaniu do szczeliny.",
+      clean_title: "Łatwe czyszczenie – po prostu umyj pod wodą",
+      clean_p1: "Kiedy chcesz dokładnie wyczyścić okolicę płyty, jednym ruchem wyjmij CleanRing ze szczeliny. Następnie przepłucz silikonową uszczelkę pod bieżącą wodą z dodatkiem delikatnego detergentu, osusz i wsuwaj z powrotem między płytę indukcyjną a blat.",
+      clean_p2: "Silikon nie nasiąka brudem ani zapachami, dlatego uszczelka wygląda jak nowa nawet po wielu cyklach mycia. To praktyczne rozwiązanie, jeśli szukasz sposobu, jak zabezpieczyć szczelinę między płytą indukcyjną a blatem i jednocześnie ułatwić sobie utrzymanie kuchni w czystości.",
+      who_title: "Dla kogo jest CleanRing?",
+      who_li1: "Dla osób ceniących czystość i estetykę w kuchni.",
+      who_li2: "Dla wynajmujących mieszkania – jako prosta ochrona płyty i blatu przed trudnymi do doczyszczenia zabrudzeniami.",
+      who_li3: "Dla osób po remoncie kuchni, które chcą jak najdłużej zachować nowy wygląd płyty indukcyjnej i blatu.",
+      who_li4: "Dla wszystkich, którzy mają dość skrobania zaschniętego brudu ze szczeliny między szkłem a blatem.",
+      spec_title: "Dane techniczne produktu",
+      spec_p1: "Materiał: guma silikonowa, bezpieczna w kontakcie z wysoką temperaturą typową dla okolic płyty indukcyjnej.",
+      spec_p2: "Kolor: czarny – uniwersalny, wizualnie stapia się z krawędzią większości płyt indukcyjnych.",
+      spec_p3: "Montaż: bezklejowy, uszczelka napinana jest w szczelinę między szkłem płyty a blatem kuchennym.",
+      spec_p4: "Czyszczenie: ręczne, pod bieżącą wodą, z dodatkiem delikatnego detergentu; po osuszeniu ponowny montaż w szczelinie.",
+      photos_title: "Zamów CleanRing",
+      photos_p: "Rozwiąż problem brudu w szczelinie przy płycie indukcyjnej jednym prostym dodatkiem. Wybierz wygodną dla siebie formę zakupu.",
+      photos_cta_text: "Gotowy, aby raz na zawsze rozwiązać problem brudu w szczelinie przy płycie indukcyjnej?",
+      footer_brand: "© " + new Date().getFullYear() + " CleanRing – silikonowa uszczelka ochronna do płyty indukcyjnej",
+      footer_email: 'Kontakt: <a href="mailto:shop@cleanring.eu">shop@cleanring.eu</a>',
+      footer_store: "Sklep online",
+      footer_allegro: "Oferta na Allegro"
+    },
+    en: {
+      brand: "CleanRing – silicone seal for induction hob",
+      badge: "Keep the gap around your induction hob clean – no scraping",
+      hero_h1: "CleanRing – silicone protective seal for your induction hob",
+      hero_intro: "CleanRing is a slim, black silicone protective seal for your induction hob that you slide between the glass and the worktop. It is a simple way of protecting the gap around your induction cooktop from dirt and moisture – with no glue and no tools.",
+      hero_note: "A very discreet black silicone seal for induction cooktops – fits most hobs that sit slightly above the worktop (not flush‑mounted).",
+      gallery_hint: "Swipe horizontally to see more photos. Tap the large photo to enlarge.",
+      usp_1: "Protecting the gap around an induction hob from dirt and moisture",
+      usp_2: "Quick installation with no glue – just slide it between glass and worktop",
+      usp_3: "Easy cleaning – remove, rinse under water and put back on",
+      btn_store: "Buy now in the store",
+      btn_allegro: "See on Allegro",
+      why_title: "Why CleanRing is a must‑have in your kitchen",
+      why_p1: "When you cook, crumbs, sauces and food residues fall into the narrow gap between the induction hob and the countertop. Over weeks and months, stubborn dirt, moisture and grease build up in this gap, and scraping with a knife or scraper can easily scratch the glass.",
+      why_p2: "The CleanRing silicone protective seal for induction hob creates a discreet, flexible barrier around your cooktop. The seal between induction hob glass and countertop effectively stops crumbs and moisture, helping your kitchen stay clean and neat for longer.",
+      how_title: "How the CleanRing seal works",
+      how_p1: "CleanRing is a thin silicone protective seal that you insert into the gap between the edge of the induction hob and the worktop. You install it without glue – simply stretch it gently around the entire perimeter so that the seal sits firmly between the glass and the countertop.",
+      how_p2: "The flexible silicone rubber adapts to the gap and is resistant to typical temperatures around the hob. It does not deform or discolor and keeps its elasticity, providing long‑term protection for the gap around your induction cooktop from dirt and moisture.",
+      install_title: "Quick installation – no tools, no glue",
+      install_p1: "Installing CleanRing only takes a few minutes. Just follow these steps:",
+      install_li1: "Clean and thoroughly dry the area around your induction hob, especially the gap between the glass and the worktop.",
+      install_li2: "Gently stretch the CleanRing silicone seal with your fingers, inserting it section by section into the gap around the entire hob.",
+      install_p2: "You do not need any tools or glue – the black silicone seal for induction cooktop stays in place thanks to light tension and a snug fit in the gap.",
+      clean_title: "Easy cleaning – just rinse under water",
+      clean_p1: "When you want to deep clean around the hob, simply pull CleanRing out of the gap in one smooth motion. Then rinse the silicone protective seal under running water with a mild detergent, dry it and slide it back between the induction hob and the worktop.",
+      clean_p2: "Silicone does not absorb dirt or odors, so the seal looks like new even after many cleaning cycles. It is a practical answer to the question how to protect the gap between induction hob and worktop while keeping your kitchen easy to clean.",
+      who_title: "Who is CleanRing for?",
+      who_li1: "People who value cleanliness and a tidy, minimalistic kitchen.",
+      who_li2: "Landlords who want to protect the hob and countertop from hard‑to‑remove stains.",
+      who_li3: "Anyone after a kitchen renovation who wants to keep the new look of the induction hob and worktop for as long as possible.",
+      who_li4: "Everyone who is tired of scraping dried‑on dirt out of the narrow gap between glass and worktop.",
+      spec_title: "Product technical details",
+      spec_p1: "Material: silicone rubber, safe to use near high temperatures typically found around an induction hob.",
+      spec_p2: "Colour: black – universal and designed to visually blend in with the edge of most induction hobs.",
+      spec_p3: "Installation: glue‑free, the seal is gently tensioned and pressed into the gap between hob glass and countertop.",
+      spec_p4: "Cleaning: hand‑wash under running water with a mild detergent; reinstall in the gap once dry.",
+      photos_title: "Order CleanRing",
+      photos_p: "Solve the problem of dirt in the gap around your induction hob with one simple accessory. Choose the purchase option that works best for you.",
+      photos_cta_text: "Ready to finally solve the problem of dirt building up in the gap around your induction hob?",
+      footer_brand: "© " + new Date().getFullYear() + " CleanRing – silicone protective seal for induction hob",
+      footer_email: 'Contact: <a href="mailto:shop@cleanring.eu">shop@cleanring.eu</a>',
+      footer_store: "Online store",
+      footer_allegro: "Offer on Allegro"
+    }
+  };
+
+  function setMetaForLang(lang) {
+    const head = document.head;
+    const plTitleEl = head.querySelector("title[data-i18n-title-pl]");
+    const enTitleEl = head.querySelector("title[data-i18n-title-en]");
+    const plMetaEl = head.querySelector("meta[name='description'][data-i18n-meta-pl]");
+    const enMetaEl = head.querySelector("meta[name='description'][data-i18n-meta-en]");
+    if (!plTitleEl || !enTitleEl || !plMetaEl || !enMetaEl) return;
+
+    if (lang === "pl") {
+      plTitleEl.textContent = plTitleEl.textContent.trim();
+      plMetaEl.setAttribute("content", plMetaEl.getAttribute("content"));
+      enTitleEl.hidden = true;
+    } else {
+      plTitleEl.textContent = enTitleEl.textContent.trim();
+      plMetaEl.setAttribute("content", enMetaEl.getAttribute("content"));
+      enTitleEl.hidden = false;
+    }
+    document.documentElement.lang = lang;
+  }
+
+  function switchLang(lang) {
+    const dict = translations[lang];
+    if (!dict) return;
+
+    document.querySelectorAll("[data-i18n]").forEach(el => {
+      const key = el.getAttribute("data-i18n");
+      if (dict[key] !== undefined) {
+        if (key === "footer_email") {
+          el.innerHTML = dict[key];
+        } else {
+          el.textContent = dict[key];
+        }
+      }
+    });
+
+    document.querySelectorAll("[data-i18n-alt-pl]").forEach(img => {
+      const altPl = img.getAttribute("data-i18n-alt-pl");
+      const altEn = img.getAttribute("data-i18n-alt-en");
+      img.alt = lang === "pl" ? altPl : (altEn || altPl);
+    });
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.classList.toggle("active", btn.getAttribute("data-lang") === lang);
+    });
+
+    setMetaForLang(lang);
+
+    try {
+      localStorage.setItem("cleanring_lang", lang);
+    } catch (e) {}
+  }
+
+  function initGallery() {
+    const mainImg = document.getElementById("gallery-main-img");
+    const thumbs = Array.from(document.querySelectorAll(".gallery-thumb"));
+    const lightbox = document.getElementById("lightbox");
+    const lightboxImg = document.getElementById("lightbox-img");
+    const closeBtn = document.querySelector(".lightbox-close");
+    const prevBtn = document.querySelector(".lightbox-arrow.left");
+    const nextBtn = document.querySelector(".lightbox-arrow.right");
+
+    let currentIndex = 0;
+
+    function setMainFromThumb(th, index) {
+      const src = th.getAttribute("data-full") || th.src;
+      mainImg.src = src;
+      mainImg.alt = th.alt;
+      thumbs.forEach(t => t.classList.remove("active"));
+      th.classList.add("active");
+      currentIndex = index;
+    }
+
+    thumbs.forEach((th, index) => {
+      th.addEventListener("click", () => {
+        setMainFromThumb(th, index);
+      });
+    });
+
+    function openLightbox(index) {
+      const th = thumbs[index];
+      if (!th) return;
+      const src = th.getAttribute("data-full") || th.src;
+      lightboxImg.src = src;
+      lightboxImg.alt = th.alt;
+      currentIndex = index;
+      lightbox.classList.add("active");
+    }
+
+    function showRelative(delta) {
+      const count = thumbs.length;
+      if (!count) return;
+      currentIndex = (currentIndex + delta + count) % count;
+      const th = thumbs[currentIndex];
+      const src = th.getAttribute("data-full") || th.src;
+      lightboxImg.src = src;
+      lightboxImg.alt = th.alt;
+      thumbs.forEach(t => t.classList.remove("active"));
+      th.classList.add("active");
+      mainImg.src = src;
+      mainImg.alt = th.alt;
+    }
+
+    mainImg.addEventListener("click", () => {
+      openLightbox(currentIndex);
+    });
+
+    prevBtn.addEventListener("click", () => showRelative(-1));
+    nextBtn.addEventListener("click", () => showRelative(1));
+
+    function closeLightbox() {
+      lightbox.classList.remove("active");
+    }
+
+    closeBtn.addEventListener("click", closeLightbox);
+    lightbox.addEventListener("click", e => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    document.addEventListener("keydown", e => {
+      if (!lightbox.classList.contains("active")) return;
+      if (e.key === "Escape") closeLightbox();
+      if (e.key === "ArrowLeft") showRelative(-1);
+      if (e.key === "ArrowRight") showRelative(1);
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const yearSpan = document.getElementById("year");
+    if (yearSpan) yearSpan.textContent = new Date().getFullYear();
+
+    let initialLang = "pl";
+    try {
+      const saved = localStorage.getItem("cleanring_lang");
+      if (saved === "en") initialLang = "en";
+    } catch (e) {}
+    switchLang(initialLang);
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const lang = btn.getAttribute("data-lang");
+        switchLang(lang);
+      });
+    });
+
+    initGallery();
+  });
+</script>
+
 </body>
 </html>
