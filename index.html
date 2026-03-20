@@ -1,13 +1,53 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+    <!-- Cookie Consent (darmowy) -->
+  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
+  <script>
+  window.cookieconsent.initialise({
+    "palette": {
+      "popup": {"background": "#111827"},
+      "button": {"background": "#0ea5e9"}
+    },
+    "theme": "edgeless",
+    "content": {
+      "message": "Ta strona używa plików cookies do analityki (Google Analytics). Akceptujesz?",
+      "dismiss": "Odrzuć",
+      "link": "Dowiedz się więcej",
+      "href": "https://cleanring.eu/polityka-prywatnosci"
+    },
+    "onStatusChange": function(status) {
+      // Consent Mode v2 dla GA4
+      window.dataLayer = window.dataLayer || [];
+      if (status === "allow") {
+        gtag('consent', 'default', {
+          'analytics_storage': 'granted',
+          'ad_storage': 'granted'
+        });
+      } else {
+        gtag('consent', 'default', {
+          'analytics_storage': 'denied',
+          'ad_storage': 'denied'
+        });
+      }
+    }
+  });
+  </script>
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-F422S4EKNV"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
+    
+    // Consent Mode v2 – domyślnie denied (zgodne z RODO)
+    gtag('consent', 'default', {
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
+    });
+    
     gtag('config', 'G-F422S4EKNV');
   </script>
   <meta charset="utf-8" />
