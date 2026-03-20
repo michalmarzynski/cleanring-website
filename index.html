@@ -21,53 +21,17 @@
   <meta property="og:image" content="https://cleanring.eu/assets/images/cleanring-1.jpg" />
   <meta property="og:title" content="CleanRing – silikonowa uszczelka ochronna do płyty indukcyjnej" />
   <meta property="og:description" content="Silikonowa uszczelka ochronna do płyty indukcyjnej CleanRing – koniec brudu w szczelinie między szkłem a blatem." />
-    <!-- Cookie Consent (darmowy) -->
-  <script src="https://cdn.jsdelivr.net/npm/cookieconsent@3/build/cookieconsent.min.js"></script>
-  <script>
-  window.cookieconsent.initialise({
-    "palette": {
-      "popup": {"background": "#111827"},
-      "button": {"background": "#0ea5e9"}
-    },
-    "theme": "edgeless",
-    "content": {
-      "message": "Ta strona używa plików cookies do analityki (Google Analytics). Akceptujesz?",
-      "dismiss": "Odrzuć",
-      "link": "Dowiedz się więcej",
-      "href": "https://cleanring.eu/polityka-prywatnosci"
-    },
-    "onStatusChange": function(status) {
-      // Consent Mode v2 dla GA4
-      window.dataLayer = window.dataLayer || [];
-      if (status === "allow") {
-        gtag('consent', 'default', {
-          'analytics_storage': 'granted',
-          'ad_storage': 'granted'
-        });
-      } else {
-        gtag('consent', 'default', {
-          'analytics_storage': 'denied',
-          'ad_storage': 'denied'
-        });
-      }
-    }
-  });
-  </script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-F422S4EKNV"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    
-    // Consent Mode v2 – domyślnie denied (zgodne z RODO)
+
+    // 1. Ustawienie domyślne: brak zgody na analitykę
     gtag('consent', 'default', {
-      'analytics_storage': 'denied',
-      'ad_storage': 'denied',
-      'ad_user_data': 'denied',
-      'ad_personalization': 'denied'
+      'analytics_storage': 'denied'
     });
-    
+
+    gtag('js', new Date());
     gtag('config', 'G-F422S4EKNV');
   </script>
   <script type="application/ld+json">
@@ -623,6 +587,11 @@
   </style>
 </head>
 <body>
+<div id="cookie-banner" style="display: none; position: fixed; bottom: 0; left: 0; width: 100%; background: #222; color: #fff; padding: 20px; text-align: center; z-index: 9999;">
+    <span>Używamy plików cookie do analizy ruchu na stronie. Czy wyrażasz na to zgodę?</span>
+    <button id="accept-cookies" style="background: #4CAF50; color: white; border: none; padding: 10px 25px; margin-left: 15px; cursor: pointer; border-radius: 4px; font-weight: bold;">Akceptuję</button>
+    <button id="reject-cookies" style="background: #666; color: white; border: none; padding: 10px 25px; margin-left: 10px; cursor: pointer; border-radius: 4px;">Odrzucam</button>
+</div>
 <header>
   <div class="topbar">
     <div class="brand">
@@ -1152,6 +1121,34 @@
     initGallery();
   });
 </script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const banner = document.getElementById('cookie-banner');
+        const acceptBtn = document.getElementById('accept-cookies');
+        const rejectBtn = document.getElementById('reject-cookies');
 
+        // Pokaż baner, jeśli nie ma jeszcze decyzji w localStorage
+        if (!localStorage.getItem('cookieConsent')) {
+            banner.style.display = 'block';
+        }
+
+        // Funkcja aktualizująca zgodę w Google Analytics
+        function updateConsent(status) {
+            gtag('consent', 'update', {
+                'analytics_storage': status === 'granted' ? 'granted' : 'denied'
+            });
+            localStorage.setItem('cookieConsent', status);
+            banner.style.display = 'none';
+        }
+
+        acceptBtn.onclick = function() {
+            updateConsent('granted');
+        };
+
+        rejectBtn.onclick = function() {
+            updateConsent('denied');
+        };
+    });
+</script>
 </body>
 </html>
