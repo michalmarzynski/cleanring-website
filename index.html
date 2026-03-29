@@ -97,15 +97,37 @@
       margin: 0;
       padding: 0;
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(1100px 650px at 12% 8%, rgba(14,165,233,0.22), transparent 60%),
+        radial-gradient(980px 720px at 88% 14%, rgba(99,102,241,0.20), transparent 58%),
+        radial-gradient(1050px 700px at 55% 102%, rgba(16,185,129,0.14), transparent 62%),
+        linear-gradient(180deg, #ffffff 0%, #f4f6ff 42%, var(--bg) 100%);
       color: var(--text);
       line-height: 1.6;
     }
 
     body {
+      position: relative;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      opacity: 0.18;
+      mix-blend-mode: multiply;
+      background-image:
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
+    }
+
+    header, main, footer {
+      position: relative;
+      z-index: 1;
     }
 
     a {
@@ -282,6 +304,62 @@
 
     .btn-secondary:hover {
       filter: brightness(1.05);
+      text-decoration: none;
+    }
+
+    .btn-icon {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    /* Allegro CTA (pomarańcz + koszyk) */
+    .btn-allegro {
+      background: #ff5a00;
+      color: #fff;
+      box-shadow: 0 10px 18px rgba(255, 90, 0, 0.28);
+    }
+
+    .btn-allegro .btn-icon {
+      /* keep button height unchanged, but reserve horizontal space */
+      width: 5.7em;
+      height: 1em;
+      display: block;
+      align-self: center;
+      overflow: visible;
+      transform: none;
+    }
+
+    .btn-allegro .btn-icon path {
+      /* scale the logotype visually without changing layout height */
+      transform-box: fill-box;
+      transform-origin: center;
+      transform: translateY(0.06em) scale(4.5);
+    }
+
+    .btn-allegro:hover {
+      filter: brightness(1.03);
+      text-decoration: none;
+    }
+
+    /* Etsy CTA */
+    .btn-etsy {
+      background: #f1641e;
+      color: #fff;
+      box-shadow: 0 10px 18px rgba(241, 100, 30, 0.25);
+    }
+
+    .btn-etsy .btn-icon {
+      /* use a full Etsy logo mark (not only “E”) */
+      width: 1.35em;
+      height: 1.35em;
+      display: block;
+      align-self: center;
+      overflow: visible;
+    }
+
+    .btn-etsy:hover {
+      filter: brightness(1.03);
       text-decoration: none;
     }
 
@@ -499,10 +577,20 @@
       margin-top: 0.5rem;
       padding-top: 0.75rem;
       border-top: 1px dashed var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
     }
 
     .cta-block p {
       margin-bottom: 0.5rem;
+    }
+
+    .cta-block .btn-primary,
+    .cta-block .btn-secondary {
+      width: 100%;
+      justify-content: center;
+      min-height: 44px;
     }
 
     footer {
@@ -606,7 +694,7 @@
   <div class="topbar">
     <div class="brand">
       <div class="brand-logo">
-        <img src="http://cleanring.eu/assets/images/logo_main.png"
+        <img src="assets/images/logo.png"
              alt="CleanRing – logo marki silikonowej uszczelki ochronnej do płyty indukcyjnej">
       </div>
       <div class="brand-text" data-i18n="brand">
@@ -650,8 +738,18 @@
           Kup teraz w sklepie
         </a>
         <a href="https://allegro.pl/oferta/cleanring-silikonowa-uszczelka-do-plyty-indukcyjnej-koniec-brudu-18397395988"
-           target="_blank" rel="noopener" class="btn-secondary" data-i18n="btn_allegro">
-          Zobacz na Allegro
+           target="_blank" rel="noopener" class="btn-secondary btn-allegro">
+          <span data-i18n="btn_allegro">Kup na</span>
+          <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M4.59 7.981a.124.124 0 0 0-.122.124v5.917a.124.124 0 0 0 .124.124h.72a.124.124 0 0 0 .124-.124h-.002V8.105a.124.124 0 0 0-.124-.124Zm1.691 0a.124.124 0 0 0-.124.124v5.917a.124.124 0 0 0 .124.124h.72a.124.124 0 0 0 .123-.124V8.105a.124.124 0 0 0-.122-.124Zm12.667 1.776a1.868 1.868 0 0 0-1.317.532 1.674 1.674 0 0 0-.531 1.254v2.48a.124.124 0 0 0 .123.123h.72a.124.124 0 0 0 .124-.124v-2.427c0-.752.5-1.113 1.314-.946a.13.13 0 0 0 .168-.142v-.495c0-.13-.014-.18-.1-.208a2.794 2.794 0 0 0-.501-.047Zm-4.626 0a2.193 2.193 0 0 0-1.732.849 2.355 2.355 0 0 0 0 2.678 2.13 2.131 0 0 0 1.732.849 2.21 2.21 0 0 0 1.234-.372v.53c0 .717-.627.848-1.03.873a4.73 4.73 0 0 1-.826-.045c-.11-.017-.188 0-.188.119v.636a.109.109 0 0 0 .114.103c.933.08 1.56.064 2.032-.206a1.537 1.537 0 0 0 .69-.875 2.928 2.928 0 0 0 .117-.874v-2.077h.002a2.245 2.245 0 0 0-.412-1.34 2.193 2.193 0 0 0-1.733-.848Zm-12.255.002a2.903 2.903 0 0 0-1.465.39.092.092 0 0 0-.045.08l.038.63a.112.112 0 0 0 .185.065c.627-.387 1.38-.459 1.764-.265a.67.67 0 0 1 .335.605v.092H1.832c-.45 0-1.83.167-1.83 1.434v.014a1.229 1.229 0 0 0 .45 1.017 1.768 1.768 0 0 0 1.118.32h2.118a.124.124 0 0 0 .124-.125v-2.51l-.002.004c0-.57-.127-1.004-.402-1.303-.274-.3-.827-.45-1.34-.45zm7.707 0c-1.28 0-1.84.858-2.02 1.585a2.44 2.44 0 0 0-.074.6 2.277 2.277 0 0 0 .412 1.338 2.198 2.198 0 0 0 1.733.85c.691.024 1.153-.093 1.506-.294a.196.196 0 0 0 .084-.212v-.558c0-.114-.069-.167-.167-.098a2.185 2.185 0 0 1-1.393.334 1.14 1.14 0 0 1-1.118-1.016h2.845a.117.117 0 0 0 .117-.116c.05-.778-.175-2.413-1.925-2.413Zm12.08 0a2.193 2.193 0 0 0-1.731.848 2.275 2.275 0 0 0-.412 1.34 2.275 2.275 0 0 0 .412 1.339 2.193 2.193 0 0 0 3.465 0 2.277 2.277 0 0 0 .412-1.34 2.277 2.277 0 0 0-.412-1.339 2.193 2.193 0 0 0-1.733-.848Zm-7.532.833c1.157 0 1.196 1.18 1.196 1.351 0 .171-.039 1.351-1.196 1.351-.517 0-.89-.378-1.047-.849a1.552 1.552 0 0 1 0-1.004c.157-.47.53-.849 1.047-.849zm-4.546.004a.86.86 0 0 1 .91.922H8.754a.968.968 0 0 1 1.024-.922zm12.078 0c.515-.012.89.378 1.048.848a1.553 1.553 0 0 1 0 1.003v.002c-.158.47-.531.837-1.048.848-.518.012-.89-.378-1.047-.848a1.552 1.552 0 0 1 0-1.005c.158-.47.53-.837 1.047-.848zM1.89 12.121h.99v1.246H1.63a.773.773 0 0 1-.444-.156.492.492 0 0 1-.21-.412c0-.226.153-.678.914-.678z"/>
+          </svg>
+        </a>
+        <a href="https://cleanring.etsy.com/pl/listing/4479716522/silicone-protective-seal-for-your"
+           target="_blank" rel="noopener" class="btn-secondary btn-etsy">
+          <svg class="btn-icon" viewBox="0 0 97.75 97.75" aria-hidden="true" focusable="false">
+            <path fill="currentColor" d="M48.875,0C21.882,0,0,21.883,0,48.875S21.882,97.75,48.875,97.75S97.75,75.867,97.75,48.875S75.868,0,48.875,0z M78.729,68.146c-0.556,4.598-1.133,9.192-1.649,13.795c-0.19,1.713-0.125,1.703-1.881,1.683c-13.405-0.167-26.809-0.384-40.214-0.459c-4.803-0.028-9.607,0.289-14.412,0.44c-0.636,0.021-1.271,0.004-2.027,0.004c0-1.336,0-2.629,0-4.129c1.713-0.338,3.529-0.674,5.334-1.063c0.742-0.16,1.478-0.392,2.181-0.674c1.061-0.427,1.727-1.216,1.88-2.38c0.071-0.547,0.179-1.096,0.184-1.644c0.092-10.002,0.218-20.003,0.232-30.004c0.009-6.213-0.15-12.425-0.252-18.636c-0.057-3.517-0.988-4.611-4.417-5.266c-1.457-0.277-2.93-0.497-4.372-0.833c-0.348-0.083-0.843-0.506-0.871-0.81c-0.104-1.133-0.041-2.279-0.041-3.516c19.228,0.32,38.347,1.13,57.646-0.536c-0.404,6.527-0.809,13.066-1.221,19.722c-1.169,0-2.239,0.093-3.277-0.049c-0.367-0.052-0.828-0.62-0.955-1.04c-0.588-1.948-1.023-3.943-1.613-5.892c-0.346-1.132-0.812-2.241-1.346-3.299c-1.207-2.395-3.019-3.681-5.888-3.632c-6.896,0.121-13.794,0.037-20.69,0.041c-1.754,0.002-1.806,0.06-1.808,1.778c-0.01,7.748-0.016,15.497-0.022,23.244c-0.002,0.423,0,0.846,0,1.378c3.049,0,5.932,0.048,8.813-0.018c1.867-0.041,3.731-0.225,5.595-0.379c2.549-0.211,3.455-0.955,4.096-3.415c0.48-1.846,0.91-3.705,1.326-5.567c0.164-0.734,0.498-1.072,1.303-1.015c1.014,0.072,2.037,0.018,3.199,0.018c0,0.677,0.006,1.284,0,1.894c-0.062,7.271-0.141,14.542-0.164,21.813c-0.004,0.967-0.228,1.352-1.266,1.357c-3.055,0.022-3.053,0.063-3.773-2.92c-0.26-1.072-0.521-2.146-0.803-3.211c-0.647-2.455-2.479-3.359-4.783-3.435c-4.335-0.146-8.676-0.188-13.015-0.271c-0.118-0.002-0.237,0.063-0.47,0.125c-0.021,0.481-0.063,0.979-0.064,1.476c-0.01,6.472-0.016,12.942-0.018,19.413c-0.003,4.021,1.512,5.972,5.546,6.086c6.204,0.178,12.423,0.049,18.629-0.141c3.754-0.113,6.325-2.312,7.935-5.58c1.312-2.666,2.512-5.392,3.621-8.146c0.49-1.221,1.129-1.787,2.451-1.584c0.573,0.09,1.174,0.015,1.98,0.015C79.141,64.745,78.934,66.445,78.729,68.146z"/>
+          </svg>
+          <span data-i18n="btn_etsy">Buy on Etsy</span>
         </a>
       </div>
 
@@ -861,8 +959,18 @@
             Kup teraz w sklepie
           </a>
           <a href="https://allegro.pl/oferta/cleanring-silikonowa-uszczelka-do-plyty-indukcyjnej-koniec-brudu-18397395988"
-             target="_blank" rel="noopener" class="btn-secondary" data-i18n="btn_allegro">
-            Zobacz na Allegro
+             target="_blank" rel="noopener" class="btn-secondary btn-allegro">
+            <span data-i18n="btn_allegro">Kup na</span>
+            <svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M4.59 7.981a.124.124 0 0 0-.122.124v5.917a.124.124 0 0 0 .124.124h.72a.124.124 0 0 0 .124-.124h-.002V8.105a.124.124 0 0 0-.124-.124Zm1.691 0a.124.124 0 0 0-.124.124v5.917a.124.124 0 0 0 .124.124h.72a.124.124 0 0 0 .123-.124V8.105a.124.124 0 0 0-.122-.124Zm12.667 1.776a1.868 1.868 0 0 0-1.317.532 1.674 1.674 0 0 0-.531 1.254v2.48a.124.124 0 0 0 .123.123h.72a.124.124 0 0 0 .124-.124v-2.427c0-.752.5-1.113 1.314-.946a.13.13 0 0 0 .168-.142v-.495c0-.13-.014-.18-.1-.208a2.794 2.794 0 0 0-.501-.047Zm-4.626 0a2.193 2.193 0 0 0-1.732.849 2.355 2.355 0 0 0 0 2.678 2.13 2.131 0 0 0 1.732.849 2.21 2.21 0 0 0 1.234-.372v.53c0 .717-.627.848-1.03.873a4.73 4.73 0 0 1-.826-.045c-.11-.017-.188 0-.188.119v.636a.109.109 0 0 0 .114.103c.933.08 1.56.064 2.032-.206a1.537 1.537 0 0 0 .69-.875 2.928 2.928 0 0 0 .117-.874v-2.077h.002a2.245 2.245 0 0 0-.412-1.34 2.193 2.193 0 0 0-1.733-.848Zm-12.255.002a2.903 2.903 0 0 0-1.465.39.092.092 0 0 0-.045.08l.038.63a.112.112 0 0 0 .185.065c.627-.387 1.38-.459 1.764-.265a.67.67 0 0 1 .335.605v.092H1.832c-.45 0-1.83.167-1.83 1.434v.014a1.229 1.229 0 0 0 .45 1.017 1.768 1.768 0 0 0 1.118.32h2.118a.124.124 0 0 0 .124-.125v-2.51l-.002.004c0-.57-.127-1.004-.402-1.303-.274-.3-.827-.45-1.34-.45zm7.707 0c-1.28 0-1.84.858-2.02 1.585a2.44 2.44 0 0 0-.074.6 2.277 2.277 0 0 0 .412 1.338 2.198 2.198 0 0 0 1.733.85c.691.024 1.153-.093 1.506-.294a.196.196 0 0 0 .084-.212v-.558c0-.114-.069-.167-.167-.098a2.185 2.185 0 0 1-1.393.334 1.14 1.14 0 0 1-1.118-1.016h2.845a.117.117 0 0 0 .117-.116c.05-.778-.175-2.413-1.925-2.413Zm12.08 0a2.193 2.193 0 0 0-1.731.848 2.275 2.275 0 0 0-.412 1.34 2.275 2.275 0 0 0 .412 1.339 2.193 2.193 0 0 0 3.465 0 2.277 2.277 0 0 0 .412-1.34 2.277 2.277 0 0 0-.412-1.339 2.193 2.193 0 0 0-1.733-.848Zm-7.532.833c1.157 0 1.196 1.18 1.196 1.351 0 .171-.039 1.351-1.196 1.351-.517 0-.89-.378-1.047-.849a1.552 1.552 0 0 1 0-1.004c.157-.47.53-.849 1.047-.849zm-4.546.004a.86.86 0 0 1 .91.922H8.754a.968.968 0 0 1 1.024-.922zm12.078 0c.515-.012.89.378 1.048.848a1.553 1.553 0 0 1 0 1.003v.002c-.158.47-.531.837-1.048.848-.518.012-.89-.378-1.047-.848a1.552 1.552 0 0 1 0-1.005c.158-.47.53-.837 1.047-.848zM1.89 12.121h.99v1.246H1.63a.773.773 0 0 1-.444-.156.492.492 0 0 1-.21-.412c0-.226.153-.678.914-.678z"/>
+            </svg>
+          </a>
+          <a href="https://cleanring.etsy.com/pl/listing/4479716522/silicone-protective-seal-for-your"
+             target="_blank" rel="noopener" class="btn-secondary btn-etsy">
+            <svg class="btn-icon" viewBox="0 0 97.75 97.75" aria-hidden="true" focusable="false">
+              <path fill="currentColor" d="M48.875,0C21.882,0,0,21.883,0,48.875S21.882,97.75,48.875,97.75S97.75,75.867,97.75,48.875S75.868,0,48.875,0z M78.729,68.146c-0.556,4.598-1.133,9.192-1.649,13.795c-0.19,1.713-0.125,1.703-1.881,1.683c-13.405-0.167-26.809-0.384-40.214-0.459c-4.803-0.028-9.607,0.289-14.412,0.44c-0.636,0.021-1.271,0.004-2.027,0.004c0-1.336,0-2.629,0-4.129c1.713-0.338,3.529-0.674,5.334-1.063c0.742-0.16,1.478-0.392,2.181-0.674c1.061-0.427,1.727-1.216,1.88-2.38c0.071-0.547,0.179-1.096,0.184-1.644c0.092-10.002,0.218-20.003,0.232-30.004c0.009-6.213-0.15-12.425-0.252-18.636c-0.057-3.517-0.988-4.611-4.417-5.266c-1.457-0.277-2.93-0.497-4.372-0.833c-0.348-0.083-0.843-0.506-0.871-0.81c-0.104-1.133-0.041-2.279-0.041-3.516c19.228,0.32,38.347,1.13,57.646-0.536c-0.404,6.527-0.809,13.066-1.221,19.722c-1.169,0-2.239,0.093-3.277-0.049c-0.367-0.052-0.828-0.62-0.955-1.04c-0.588-1.948-1.023-3.943-1.613-5.892c-0.346-1.132-0.812-2.241-1.346-3.299c-1.207-2.395-3.019-3.681-5.888-3.632c-6.896,0.121-13.794,0.037-20.69,0.041c-1.754,0.002-1.806,0.06-1.808,1.778c-0.01,7.748-0.016,15.497-0.022,23.244c-0.002,0.423,0,0.846,0,1.378c3.049,0,5.932,0.048,8.813-0.018c1.867-0.041,3.731-0.225,5.595-0.379c2.549-0.211,3.455-0.955,4.096-3.415c0.48-1.846,0.91-3.705,1.326-5.567c0.164-0.734,0.498-1.072,1.303-1.015c1.014,0.072,2.037,0.018,3.199,0.018c0,0.677,0.006,1.284,0,1.894c-0.062,7.271-0.141,14.542-0.164,21.813c-0.004,0.967-0.228,1.352-1.266,1.357c-3.055,0.022-3.053,0.063-3.773-2.92c-0.26-1.072-0.521-2.146-0.803-3.211c-0.647-2.455-2.479-3.359-4.783-3.435c-4.335-0.146-8.676-0.188-13.015-0.271c-0.118-0.002-0.237,0.063-0.47,0.125c-0.021,0.481-0.063,0.979-0.064,1.476c-0.01,6.472-0.016,12.942-0.018,19.413c-0.003,4.021,1.512,5.972,5.546,6.086c6.204,0.178,12.423,0.049,18.629-0.141c3.754-0.113,6.325-2.312,7.935-5.58c1.312-2.666,2.512-5.392,3.621-8.146c0.49-1.221,1.129-1.787,2.451-1.584c0.573,0.09,1.174,0.015,1.98,0.015C79.141,64.745,78.934,66.445,78.729,68.146z"/>
+            </svg>
+            <span data-i18n="btn_etsy">Buy on Etsy</span>
           </a>
         </div>
       </article>
@@ -905,7 +1013,8 @@
       usp_2: "Szybki montaż bez kleju, tylko wsuwasz między szkło a blat",
       usp_3: "Łatwe czyszczenie – wyjmij, opłucz pod wodą i załóż ponownie",
       btn_store: "Kup teraz w sklepie",
-      btn_allegro: "Zobacz na Allegro",
+      btn_allegro: "Kup na",
+      btn_etsy: "Kup na Etsy",
       why_title: "Dlaczego warto mieć CleanRing w swojej kuchni?",
       why_p1: "Podczas gotowania między płytą indukcyjną a blatem wpadają okruszki, sosy i resztki jedzenia. Po tygodniach i miesiącach w tej wąskiej szczelinie zbiera się trudny do usunięcia brud, wilgoć i tłuszcz, a skrobanie nożykiem lub skrobakiem grozi porysowaniem szkła.",
       why_p2: "Silikonowa uszczelka ochronna do płyty indukcyjnej CleanRing tworzy dyskretną, elastyczną barierę wokół płyty. Uszczelka do płyty indukcyjnej między szkłem a blatem skutecznie zatrzymuje okruszki i wilgoć, dzięki czemu kuchnia dłużej pozostaje czysta i zadbana.",
@@ -952,7 +1061,8 @@
       usp_2: "Quick installation with no glue – just slide it between glass and worktop",
       usp_3: "Easy cleaning – remove, rinse under water and put back on",
       btn_store: "Buy now in the store",
-      btn_allegro: "See on Allegro",
+      btn_allegro: "Buy on",
+      btn_etsy: "Buy on Etsy",
       why_title: "Why CleanRing is a must‑have in your kitchen",
       why_p1: "When you cook, crumbs, sauces and food residues fall into the narrow gap between the induction hob and the countertop. Over weeks and months, stubborn dirt, moisture and grease build up in this gap, and scraping with a knife or scraper can easily scratch the glass.",
       why_p2: "The CleanRing silicone protective seal for induction hob creates a discreet, flexible barrier around your cooktop. The seal between induction hob glass and countertop effectively stops crumbs and moisture, helping your kitchen stay clean and neat for longer.",
